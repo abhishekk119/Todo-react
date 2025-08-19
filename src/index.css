@@ -1,0 +1,69 @@
+.userinputwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.inputbox {
+  height: 40px;
+  width: 250px;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.inputbox:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+}
+
+.alltodowrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-group {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 600px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tasknumber-and-checkbox-and-task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.currenttime-and-deletebutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.alltodos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-done {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+}
