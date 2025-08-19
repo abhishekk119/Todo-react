@@ -139,6 +139,19 @@ function App() {
     return groups;
   }, {});
 
+  // Sort the date groups by date (newest first)
+  const sortedDateEntries = Object.entries(tasksByDate).sort(
+    ([dateA], [dateB]) => {
+      // Convert "dd/mm/yyyy" to Date objects for comparison
+      const parseDate = (dateStr) => {
+        const [day, month, year] = dateStr.split("/").map(Number);
+        return new Date(year, month - 1, day); // month is 0-indexed in Date
+      };
+
+      return parseDate(dateB) - parseDate(dateA); // Sort descending (newest first)
+    }
+  );
+
   function ondelete(idToDelete) {
     console.log("Deleting task:", idToDelete);
     setnewtask((prev) => prev.filter((task) => task.id !== idToDelete));
@@ -186,7 +199,7 @@ function App() {
         <Userinput usersnewinputtedtask={updateTask} />
       </div>
 
-      {Object.entries(tasksByDate).map(([date, dateGroup]) => (
+      {sortedDateEntries.map(([date, dateGroup]) => (
         <div key={date} className="alltodowrapper">
           <div key={date} className="date-group">
             <div className="topdiv">
