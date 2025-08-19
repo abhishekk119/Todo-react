@@ -76,6 +76,7 @@
   display: flex;
   align-items: center;
   justify-content: left;
+  gap: 10px;
 }
 
 .task-done {
@@ -91,8 +92,8 @@
 }
 
 .date-input-icon {
-  width: 40px; /* Just wide enough for the icon */
-  height: 40px;
+  width: 0px; /* Just wide enough for the icon */
+  height: 0px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -120,4 +121,13 @@
 
 .date-input-icon {
   color: transparent; /* Hide text in Firefox */
+}
+
+.hidden-date-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  cursor: pointer;
+  z-index: -1; /* Send it behind everything */
 }

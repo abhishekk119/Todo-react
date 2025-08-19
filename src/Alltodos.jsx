@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRef } from "react";
 
 function Alltodos({
   newtasktoadd,
@@ -11,6 +12,11 @@ function Alltodos({
 }) {
   const [taskText, setTaskText] = useState(newtasktoadd);
   const [duedate, setduedate] = useState("");
+  const dateInputRef = useRef(null);
+
+  const handleIconClick = () => {
+    dateInputRef.current?.showPicker();
+  };
 
   // Load data from localStorage
   useEffect(() => {
@@ -77,10 +83,15 @@ function Alltodos({
         </div>
         <div className="alltodoscontainer-two">
           <input
-            className="date-input-icon"
+            ref={dateInputRef}
+            className="hidden-date-input"
             type="date"
             value={duedate}
-            onChange={handleDateChange}
+            onChange={(e) => setduedate(e.target.value)}
+          />
+          <i
+            className="fa-solid fa-calendar-days calendar-icon"
+            onClick={handleIconClick}
           />
           {duedate && <p>Due by: {new Date(duedate).toLocaleDateString()}</p>}
         </div>
