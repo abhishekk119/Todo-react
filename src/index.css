@@ -236,9 +236,9 @@ body {
 .click-dropdown-content {
   height: auto;
   width: 130px;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 7px;
-  background-color: white;
+  background-color: black;
   color: white;
   display: flex;
   flex-direction: column;
@@ -248,6 +248,7 @@ body {
   padding: 15px;
   margin-left: 50px;
   position: relative;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
   
 
   animation: zoomIn; /* referring directly to the animation's @keyframe declaration */
@@ -269,7 +270,7 @@ body {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid white; /* Same color as dropdown background */
+  border-bottom: 10px solid black; /* Same color as dropdown background */
 }
 
 .click-dropdown-content p {
