@@ -95,6 +95,7 @@ function App() {
     if (!value.trim()) return;
 
     const today = new Date();
+    //const today = new Date(Date.now() + 86400000);
     const taskDate = `${today.getDate()}/${
       today.getMonth() + 1
     }/${today.getFullYear()}`;
@@ -197,7 +198,7 @@ function App() {
   return (
     <>
       <div className="logo">
-        <p>Todoapp React</p>
+        <p>Tasks.</p>
       </div>
       <div className="userinputwrapper">
         <Userinput usersnewinputtedtask={updateTask} />
