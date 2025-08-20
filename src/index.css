@@ -1,5 +1,5 @@
 body {
-  background-color: #1a1a1a;
+  background-color: black;
   font-family: "Inter", sans-serif;
 }
 
@@ -43,12 +43,12 @@ body {
 
 .date-group {
   margin-top: 20px;
-  border: 1px solid #504d4d;
+  border: 1px solid #1a1a1a;
   border-radius: 8px;
   width: 600px;
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #383636;
+  background-color: #1a1a1a;
 }
 
 .tasknumber-and-checkbox-and-task {
@@ -196,6 +196,28 @@ body {
   border: none;
   cursor: pointer;
   font-size: 18px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.logo P {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Dancing Script", cursive;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.calendar-icon {
+  -webkit-tap-highlight-color: transparent; /* For iOS/Safari */
+  tap-highlight-color: transparent; /* Standard property */
 }
 
 .calendar-icon {

@@ -196,6 +196,9 @@ function App() {
 
   return (
     <>
+      <div className="logo">
+        <p>Todoapp React</p>
+      </div>
       <div className="userinputwrapper">
         <Userinput usersnewinputtedtask={updateTask} />
       </div>
