@@ -322,26 +322,28 @@ body {
 /* Expand/Collapse animations */
 /* Expand/Collapse animations */
 /* Expand/Collapse animations */
+/* Improved Expand/Collapse animations */
 .alltodosdiv {
+  display: grid;
+  grid-template-rows: 0fr;
   opacity: 0;
-  max-height: 0;
+  transition: grid-template-rows 0.4s ease, opacity 0.4s ease;
   overflow: hidden;
-  transform: translateY(-10px);
-  transition: opacity 0.4s ease, max-height 0.4s ease, transform 0.3s ease;
+}
+
+.alltodosdiv > * {
+  min-height: 0;
 }
 
 .alltodosdiv.expanding {
+  grid-template-rows: 1fr;
   opacity: 1;
-  max-height: 500px; /* Adjust based on content height */
-  transform: translateY(0);
 }
 
 .alltodosdiv.collapsing {
+  grid-template-rows: 0fr;
   opacity: 0;
-  max-height: 0;
-  transform: translateY(-10px);
 }
-
 @media (max-width: 767px) {
   .date-group {
     width: 90%;
