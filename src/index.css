@@ -346,25 +346,18 @@ body {
 /* Expand/Collapse animations */
 /* Improved Expand/Collapse animations */
 .alltodosdiv {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition: grid-template-rows 0.4s ease, opacity 0.4s ease;
-  overflow: hidden;
-}
+  max-height: 0;
 
-.alltodosdiv > * {
-  min-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
 }
 
 .alltodosdiv.expanding {
-  grid-template-rows: 1fr;
-  opacity: 1;
+  max-height: 1000px; /* Adjust to maximum expected height */
 }
 
 .alltodosdiv.collapsing {
-  grid-template-rows: 0fr;
-  opacity: 0;
+  max-height: 0;
 }
 @media (max-width: 767px) {
   .date-group {
