@@ -8,13 +8,11 @@ function Alltodos({
   toggleCompletion,
   deletethisitem,
   currentTime,
-  id,
+  id, // This prop is now received
 }) {
   const [taskText, setTaskText] = useState(newtasktoadd);
   const [duedate, setduedate] = useState("");
   const dateInputRef = useRef(null);
-  const contentEditableRef = useRef(null);
-  const lastCaretPosition = useRef(0);
 
   const handleIconClick = () => {
     dateInputRef.current?.showPicker();
@@ -50,59 +48,9 @@ function Alltodos({
   }, [taskText, id]);
 
   const handleInput = (e) => {
-    // Save cursor position before updating state
-    const selection = window.getSelection();
-    if (selection.rangeCount > 0) {
-      const range = selection.getRangeAt(0);
-      const preSelectionRange = range.cloneRange();
-      preSelectionRange.selectNodeContents(contentEditableRef.current);
-      preSelectionRange.setEnd(range.endContainer, range.endOffset);
-      lastCaretPosition.current = preSelectionRange.toString().length;
-    }
-
     const newText = e.currentTarget.textContent;
     setTaskText(newText);
   };
-
-  // Restore cursor position after render
-  useEffect(() => {
-    if (contentEditableRef.current && lastCaretPosition.current > 0) {
-      const range = document.createRange();
-      const selection = window.getSelection();
-
-      // Find the correct text node and offset
-      let charCount = 0;
-      let nodeStack = [contentEditableRef.current];
-      let node;
-      let foundStart = false;
-
-      while ((node = nodeStack.pop())) {
-        if (node.nodeType === 3) {
-          // Text node
-          const nextCharCount = charCount + node.length;
-          if (
-            !foundStart &&
-            lastCaretPosition.current >= charCount &&
-            lastCaretPosition.current <= nextCharCount
-          ) {
-            range.setStart(node, lastCaretPosition.current - charCount);
-            range.setEnd(node, lastCaretPosition.current - charCount);
-            foundStart = true;
-          }
-          charCount = nextCharCount;
-        } else {
-          // Add children in reverse order to process first child first
-          let i = node.childNodes.length;
-          while (i--) {
-            nodeStack.push(node.childNodes[i]);
-          }
-        }
-      }
-
-      selection.removeAllRanges();
-      selection.addRange(range);
-    }
-  }, [taskText]);
 
   const handleDateChange = (e) => {
     setduedate(e.target.value);
@@ -120,7 +68,6 @@ function Alltodos({
               onChange={toggleCompletion}
             />
             <p
-              ref={contentEditableRef}
               className={isCompleted ? "task-done" : ""}
               contentEditable={true}
               suppressContentEditableWarning={true}
