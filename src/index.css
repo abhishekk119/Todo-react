@@ -277,10 +277,11 @@ body {
   margin: 0;
   padding: 0;
   cursor: pointer;
+  color: black;
 }
 
 .categories p {
-  color: white;
+  color: black;
 }
 
 .dropdowncontainer {
@@ -300,7 +301,7 @@ body {
   tap-highlight-color: transparent; /* Standard property */
 }
 
-.dateh3 {
+.date h3 {
   color: grey;
 }
 
