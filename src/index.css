@@ -267,3 +267,9 @@ body {
 
 .alltodosdiv {
 }
+
+@media (max-width: 768px) {
+  .date-group {
+    width: 450px;
+  }
+}
