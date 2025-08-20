@@ -153,14 +153,12 @@ function Alltodos({
             onClick={handleIconClick}
           />
           {duedate && (
-            <p style={{ color: "grey", fontSize: "14px" }}>
+            <p style={{ color: "grey", fontSize: "14px", margin: "0" }}>
               Due by: {new Date(duedate).toLocaleDateString()}
             </p>
           )}
         </div>
       </div>
-
-      <hr />
     </>
   );
 }

@@ -70,6 +70,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
+  border-bottom: 1px solid gray;
 }
 
 .alltodoscontainer-one {
@@ -85,11 +86,12 @@ body {
   align-items: center;
   justify-content: left;
   gap: 10px;
+  margin-bottom: 15px;
 }
 
 .task-done {
   text-decoration: line-through;
-  color: gray;
+  color: rgb(115, 114, 114) !important;
   opacity: 0.7;
 }
 
@@ -208,6 +210,22 @@ body {
   color: grey;
 }
 
+.complete-tasks-notification {
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+  margin: 0;
+  border: 1px solid red;
+  height: auto;
+  padding: 0;
+}
+
+.alltodoswrapper hr {
+  background-color: black;
+}
+
 /* Custom checkbox styles */
 .custom-checkbox {
   display: inline-block;
@@ -236,12 +254,12 @@ body {
 }
 
 .custom-checkbox:hover input ~ .checkmark {
-  border-color: black;
+  border-color: gray;
 }
 
 .custom-checkbox input:checked ~ .checkmark {
-  background-color: black;
-  border-color: black;
+  background-color: gray;
+  border-color: gray;
 }
 
 .checkmark:after {
@@ -282,7 +300,21 @@ body {
 
 /* Focus styles for accessibility */
 .custom-checkbox input:focus ~ .checkmark {
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.roundcheckbadge {
+  height: 15px;
+  width: 15px;
+  border: 1px solid rgb(112, 243, 112);
+  border-radius: 50%;
+  background-color: rgb(112, 243, 112);
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 767px) {

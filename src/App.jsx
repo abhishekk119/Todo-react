@@ -223,7 +223,7 @@ function App() {
             )}
             {dateGroup.incompleteCount === 0 && dateGroup.tasks.length > 0 && (
               <div className="incomplete-tasks-notification">
-                ✅ All tasks completed.
+                <span style={{ color: "white" }}>✓</span> All tasks completed.
               </div>
             )}
             {!expandedDates[date] &&
