@@ -7,6 +7,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;
 }
 
 .userInput {
@@ -315,6 +316,30 @@ body {
   font-weight: bold;
   margin: 0;
   padding: 0;
+}
+
+/* Expand/Collapse animations */
+/* Expand/Collapse animations */
+/* Expand/Collapse animations */
+/* Expand/Collapse animations */
+.alltodosdiv {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, max-height 0.4s ease, transform 0.3s ease;
+}
+
+.alltodosdiv.expanding {
+  opacity: 1;
+  max-height: 500px; /* Adjust based on content height */
+  transform: translateY(0);
+}
+
+.alltodosdiv.collapsing {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-10px);
 }
 
 @media (max-width: 767px) {

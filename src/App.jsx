@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Userinput from "./Userinput";
 import Alltodos from "./Alltodos";
@@ -226,21 +226,25 @@ function App() {
                 <span style={{ color: "white" }}>✓</span> All tasks completed.
               </div>
             )}
-            {!expandedDates[date] &&
-              dateGroup.tasks.map((task, i) => (
-                <div key={task.id} className="alltodosdiv">
-                  <Alltodos
-                    key={task.id}
-                    id={task.id}
-                    newtasktoadd={task.text}
-                    tasknumber={i}
-                    isCompleted={task.completed}
-                    toggleCompletion={() => toggleCompletion(task.id)}
-                    deletethisitem={() => ondelete(task.id)}
-                    currentTime={task.time}
-                  />
-                </div>
-              ))}
+            {dateGroup.tasks.map((task, i) => (
+              <div
+                key={task.id}
+                className={`alltodosdiv ${
+                  expandedDates[date] ? "collapsing" : "expanding"
+                }`}
+              >
+                <Alltodos
+                  key={task.id}
+                  id={task.id}
+                  newtasktoadd={task.text}
+                  tasknumber={i}
+                  isCompleted={task.completed}
+                  toggleCompletion={() => toggleCompletion(task.id)}
+                  deletethisitem={() => ondelete(task.id)}
+                  currentTime={task.time}
+                />
+              </div>
+            ))}
           </div>
         </div>
       ))}
