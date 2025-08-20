@@ -102,6 +102,7 @@ function App() {
     const taskTime = today.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
+      hour12: true,
     });
 
     const newTask = {

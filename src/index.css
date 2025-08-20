@@ -152,6 +152,11 @@ body {
   cursor: pointer;
 }
 
+.add-button {
+  -webkit-tap-highlight-color: transparent; /* For iOS/Safari */
+  tap-highlight-color: transparent; /* Standard property */
+}
+
 .add-button:active {
   transform: scale(1.1); /* grows by 5% */
 }
@@ -164,6 +169,11 @@ body {
   font-size: 25px;
 }
 
+.expandcollapsebtn {
+  -webkit-tap-highlight-color: transparent; /* For iOS/Safari */
+  tap-highlight-color: transparent; /* Standard property */
+}
+
 .deletebtn {
   background: none;
   color: grey;
@@ -172,12 +182,22 @@ body {
   font-size: 20px;
 }
 
+.deletebtn {
+  -webkit-tap-highlight-color: transparent; /* For iOS/Safari */
+  tap-highlight-color: transparent; /* Standard property */
+}
+
 .calendar-icon {
   background: none;
   color: grey;
   border: none;
   cursor: pointer;
   font-size: 18px;
+}
+
+.calendar-icon {
+  -webkit-tap-highlight-color: transparent; /* For iOS/Safari */
+  tap-highlight-color: transparent; /* Standard property */
 }
 
 .dateh3 {
@@ -263,9 +283,6 @@ body {
 /* Focus styles for accessibility */
 .custom-checkbox input:focus ~ .checkmark {
   box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
-}
-
-.alltodosdiv {
 }
 
 @media (max-width: 767px) {
