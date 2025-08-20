@@ -7,6 +7,7 @@ function App() {
   const [newtask, setnewtask] = useState([]);
   const [expandedDates, setExpandedDates] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showdropdown, setshowdropdown] = useState(false);
 
   // Load data from localStorage on component mount
   useEffect(() => {
@@ -209,6 +210,7 @@ function App() {
           <div key={date} className="date-group">
             <div className="topdiv">
               <h3 className="dateh3">{date}</h3>
+
               <button
                 className="expandcollapsebtn"
                 onClick={() => toggleDateExpansion(date)}

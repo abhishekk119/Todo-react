@@ -253,3 +253,20 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+<div onClick={() => setshowdropdown((prev) => !prev)}>
+                <p>Something</p>
+                {showdropdown && (
+                  <div class="click-dropdown-content" id="clickDropdown">
+                    <p>Home</p>
+                    <p>About</p>
+                    <p>Services</p>
+                    <p>Portfolio</p>
+                    <p>Contact</p>
+                  </div>
+                )}
+              </div>

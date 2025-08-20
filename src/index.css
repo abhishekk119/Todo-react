@@ -210,7 +210,7 @@ body {
   margin: 0;
   padding: 0;
   color: white;
-  font-family: "Mozilla Headline", sans-serif;
+  font-family: "Dancing Script", cursive;
   font-size: 30px;
   font-weight: bold;
 }
@@ -346,18 +346,25 @@ body {
 /* Expand/Collapse animations */
 /* Improved Expand/Collapse animations */
 .alltodosdiv {
-  max-height: 0;
-
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.4s ease, opacity 0.4s ease;
   overflow: hidden;
-  transition: max-height 0.4s ease;
+}
+
+.alltodosdiv > * {
+  min-height: 0;
 }
 
 .alltodosdiv.expanding {
-  max-height: 1000px; /* Adjust to maximum expected height */
+  grid-template-rows: 1fr;
+  opacity: 1;
 }
 
 .alltodosdiv.collapsing {
-  max-height: 0;
+  grid-template-rows: 0fr;
+  opacity: 0;
 }
 @media (max-width: 767px) {
   .date-group {
