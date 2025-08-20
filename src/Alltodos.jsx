@@ -128,7 +128,7 @@ function Alltodos({
               contentEditable={true}
               suppressContentEditableWarning={true}
               onInput={handleInput}
-              style={{ color: "white", fontSize: "22px" }}
+              style={{ color: "white", fontSize: "22px", textWrap: "wrap" }}
             >
               {taskText}
             </p>
