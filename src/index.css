@@ -215,6 +215,80 @@ body {
   font-weight: bold;
 }
 
+.categories {
+  height: 20px;
+  width: 120px;
+  border: 1px solid rgb(77, 76, 76);
+  border-radius: 15px;
+  background-color: rgb(77, 76, 76);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.categories {
+  -webkit-tap-highlight-color: transparent; /* For iOS/Safari */
+  tap-highlight-color: transparent; /* Standard property */
+}
+
+.click-dropdown-content {
+  height: auto;
+  width: 130px;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  margin-left: 50px;
+  position: relative;
+
+  animation: zoomIn; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 0.1s; /* don't forget to set a duration! */
+
+  /* Add these properties for floating effect */
+  position: absolute;
+  z-index: 1000; /* High z-index to appear on top */
+  margin-top: 190px; /* Space from the categories element */
+}
+
+/* Add the upward pointing arrow */
+.click-dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -10px; /* Position above the dropdown */
+  left: 70px; /* Adjust to align with the categories div */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid black; /* Same color as dropdown background */
+}
+
+.click-dropdown-content p {
+  border-bottom: grey;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.categories p {
+  color: white;
+}
+
+.dropdowncontainer {
+  position: relative; /* Creates positioning context for absolute children */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .calendar-icon {
   -webkit-tap-highlight-color: transparent; /* For iOS/Safari */
   tap-highlight-color: transparent; /* Standard property */

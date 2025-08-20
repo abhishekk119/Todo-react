@@ -270,3 +270,22 @@ export default App;
                   </div>
                 )}
               </div>
+
+
+
+// Add state for selected option
+const [selectedOption, setSelectedOption] = useState("Something");
+
+// Update your component
+<div onClick={() => setShowDropdown(prev => !prev)}>
+  <p>{selectedOption}</p>
+  {showdropdown && (
+    <div className="click-dropdown-content" id="clickDropdown">
+      <p onClick={() => setSelectedOption("Groceries")}>Groceries</p>
+      <p onClick={() => setSelectedOption("Important")}>Important</p>
+      <p onClick={() => setSelectedOption("Personal")}>Personal</p>
+      <p onClick={() => setSelectedOption("Ideas")}>Ideas</p>
+      <p onClick={() => setSelectedOption("Project")}>Project</p>
+    </div>
+  )}
+</div>

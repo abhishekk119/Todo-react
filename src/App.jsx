@@ -7,7 +7,8 @@ function App() {
   const [newtask, setnewtask] = useState([]);
   const [expandedDates, setExpandedDates] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showdropdown, setshowdropdown] = useState(false);
+  const [showDropdownForDate, setShowDropdownForDate] = useState(null);
+  const [categories, setCategories] = useState({});
 
   // Load data from localStorage on component mount
   useEffect(() => {
@@ -15,6 +16,7 @@ function App() {
 
     const savedTasks = localStorage.getItem("todoTasks");
     const savedExpandedStates = localStorage.getItem("expandedDates");
+    const savedCategories = localStorage.getItem("taskCategories");
 
     console.log("Saved tasks:", savedTasks);
     console.log("Saved expanded states:", savedExpandedStates);
@@ -52,6 +54,17 @@ function App() {
       }
     }
 
+    if (savedCategories) {
+      try {
+        const parsedCategories = JSON.parse(savedCategories);
+        console.log("Parsed categories:", parsedCategories);
+        setCategories(parsedCategories);
+      } catch (error) {
+        console.error("Error parsing categories:", error);
+        localStorage.removeItem("taskCategories");
+      }
+    }
+
     setIsLoaded(true);
   }, []);
 
@@ -85,6 +98,19 @@ function App() {
     }
   }, [expandedDates, isLoaded]);
 
+  // Save categories to localStorage whenever they change
+  useEffect(() => {
+    if (isLoaded) {
+      console.log("Saving categories to localStorage:", categories);
+      try {
+        localStorage.setItem("taskCategories", JSON.stringify(categories));
+        console.log("Categories saved successfully");
+      } catch (error) {
+        console.error("Error saving categories to localStorage:", error);
+      }
+    }
+  }, [categories, isLoaded]);
+
   const toggleDateExpansion = (date) => {
     setExpandedDates((prev) => ({
       ...prev,
@@ -92,11 +118,22 @@ function App() {
     }));
   };
 
+  const toggleDropdownForDate = (date) => {
+    setShowDropdownForDate(showDropdownForDate === date ? null : date);
+  };
+
+  const handleCategorySelect = (date, category) => {
+    setCategories((prev) => ({
+      ...prev,
+      [date]: category,
+    }));
+    setShowDropdownForDate(null); // Close dropdown after selection
+  };
+
   function updateTask(value) {
     if (!value.trim()) return;
 
     const today = new Date();
-    //const today = new Date(Date.now() + 86400000);
     const taskDate = `${today.getDate()}/${
       today.getMonth() + 1
     }/${today.getFullYear()}`;
@@ -169,10 +206,12 @@ function App() {
       console.log("Clearing all tasks");
       setnewtask([]);
       setExpandedDates({});
+      setCategories({});
 
       // Clear all localStorage data
       localStorage.removeItem("todoTasks");
       localStorage.removeItem("expandedDates");
+      localStorage.removeItem("taskCategories");
 
       // Clear all individual task data
       Object.keys(localStorage).forEach((key) => {
@@ -188,6 +227,7 @@ function App() {
     console.log("=== LOCALSTORAGE DEBUG ===");
     console.log("todoTasks:", localStorage.getItem("todoTasks"));
     console.log("expandedDates:", localStorage.getItem("expandedDates"));
+    console.log("taskCategories:", localStorage.getItem("taskCategories"));
     Object.keys(localStorage).forEach((key) => {
       if (key.startsWith("dueDate_") || key.startsWith("taskText_")) {
         console.log(`${key}:`, localStorage.getItem(key));
@@ -210,6 +250,12 @@ function App() {
           <div key={date} className="date-group">
             <div className="topdiv">
               <h3 className="dateh3">{date}</h3>
+              <div
+                onClick={() => toggleDropdownForDate(date)}
+                className="categories"
+              >
+                <p>{categories[date] || "Select Category"}</p>
+              </div>
 
               <button
                 className="expandcollapsebtn"
@@ -222,6 +268,27 @@ function App() {
                 )}
               </button>
             </div>
+            {showDropdownForDate === date && (
+              <div className="dropdowncontainer">
+                <div className="click-dropdown-content show" id="clickDropdown">
+                  <p onClick={() => handleCategorySelect(date, "🛒 Groceries")}>
+                    🛒 Groceries
+                  </p>
+                  <p onClick={() => handleCategorySelect(date, "✨ Personal")}>
+                    ✨ Personal
+                  </p>
+                  <p onClick={() => handleCategorySelect(date, "💡 Ideas")}>
+                    💡 Ideas
+                  </p>
+                  <p onClick={() => handleCategorySelect(date, "📐 Project")}>
+                    📐 Project
+                  </p>
+                  <p onClick={() => handleCategorySelect(date, "‼️ Important")}>
+                    ‼️ Important
+                  </p>
+                </div>
+              </div>
+            )}
             {dateGroup.incompleteCount > 0 && (
               <div className="incomplete-tasks-notification">
                 ⚠️ You have {dateGroup.incompleteCount} incomplete task(s)!
