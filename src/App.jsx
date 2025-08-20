@@ -254,7 +254,9 @@ function App() {
                 onClick={() => toggleDropdownForDate(date)}
                 className="categories"
               >
-                <p>{categories[date] || "Select Category"}</p>
+                <p style={{ fontSize: "15px", color: "grey" }}>
+                  {categories[date] || "Category"}
+                </p>
               </div>
 
               <button
