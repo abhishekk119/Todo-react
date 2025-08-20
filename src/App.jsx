@@ -203,9 +203,16 @@ function App() {
         <div key={date} className="alltodowrapper">
           <div key={date} className="date-group">
             <div className="topdiv">
-              <h3>{date}</h3>
-              <button onClick={() => toggleDateExpansion(date)}>
-                {expandedDates[date] ? "Expand" : "Collapse"}
+              <h3 className="dateh3">{date}</h3>
+              <button
+                className="expandcollapsebtn"
+                onClick={() => toggleDateExpansion(date)}
+              >
+                {expandedDates[date] ? (
+                  <i className="fa-solid fa-chevron-down"></i>
+                ) : (
+                  <i className="fa-solid fa-chevron-up"></i>
+                )}
               </button>
             </div>
             {dateGroup.incompleteCount > 0 && (

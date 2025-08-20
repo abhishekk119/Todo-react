@@ -15,7 +15,9 @@ function Userinput({ usersnewinputtedtask }) {
         value={UserInput}
         onChange={(e) => setUserInput(e.target.value)}
       />
-      <button onClick={handleADDbuttonclick}>Add Task</button>
+      <button className="add-button" onClick={handleADDbuttonclick}>
+        <i className="fa-solid fa-plus"></i>
+      </button>
     </div>
   );
 }

@@ -1,3 +1,8 @@
+body {
+  background-color: #1a1a1a;
+  font-family: "Inter", sans-serif;
+}
+
 .userinputwrapper {
   display: flex;
   align-items: center;
@@ -8,23 +13,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .inputbox {
-  height: 40px;
+  height: 30px;
   width: 250px;
   padding: 10px 14px;
   font-size: 16px;
   border: 2px solid #ddd;
+  background-color: #1a1a1a;
+  color: white;
   border-radius: 8px;
   outline: none;
   transition: 0.2s ease;
 }
 
 .inputbox:focus {
-  border-color: #4caf50;
-  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+  border-color: white;
+  box-shadow: 0 0 6px rgba(20, 37, 232, 0.4);
 }
 
 .alltodowrapper {
@@ -35,18 +42,19 @@
 
 .date-group {
   margin-top: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #504d4d;
   border-radius: 8px;
   width: 600px;
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #383636;
 }
 
 .tasknumber-and-checkbox-and-task {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
 }
 
 .currenttime-and-deletebutton {
@@ -130,4 +138,132 @@
   height: 1px;
   cursor: pointer;
   z-index: -1; /* Send it behind everything */
+}
+
+.add-button {
+  background: none;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: black;
+  height: 50px;
+  width: 50px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.add-button:active {
+  transform: scale(1.1); /* grows by 5% */
+}
+
+.expandcollapsebtn {
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.deletebtn {
+  background: none;
+  color: grey;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.calendar-icon {
+  background: none;
+  color: grey;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.dateh3 {
+  color: grey;
+}
+
+.incomplete-tasks-notification {
+  color: grey;
+}
+
+/* Custom checkbox styles */
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: relative;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+  border-color: black;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: black;
+  border-color: black;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.custom-checkbox .checkmark:after {
+  left: 4px; /* Adjusted from 6px to 4px */
+  top: 1px; /* Adjusted from 2px to 1px */
+  width: 4px; /* Reduced from 5px to 4px */
+  height: 8px; /* Reduced from 10px to 8px */
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Animation for checkmark */
+.checkmark:after {
+  animation: checkmark 0.2s ease;
+}
+
+@keyframes checkmark {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+/* Focus styles for accessibility */
+.custom-checkbox input:focus ~ .checkmark {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.alltodosdiv {
 }

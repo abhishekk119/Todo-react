@@ -113,25 +113,31 @@ function Alltodos({
       <div className="alltodoswrapper">
         <div className="alltodoscontainer-one">
           <div className="tasknumber-and-checkbox-and-task">
-            <p>{tasknumber + 1}.</p>
-            <input
-              type="checkbox"
-              checked={isCompleted}
-              onChange={toggleCompletion}
-            />
+            <p style={{ color: "grey", fontSize: "14px" }}>{tasknumber + 1}.</p>
+            <label className="custom-checkbox">
+              <input
+                type="checkbox"
+                checked={isCompleted}
+                onChange={toggleCompletion}
+              />
+              <span className="checkmark"></span>
+            </label>
             <p
               ref={contentEditableRef}
               className={isCompleted ? "task-done" : ""}
               contentEditable={true}
               suppressContentEditableWarning={true}
               onInput={handleInput}
+              style={{ color: "white", fontSize: "22px" }}
             >
               {taskText}
             </p>
           </div>
           <div className="currenttime-and-deletebutton">
-            <p>{currentTime}</p>
-            <button onClick={deletethisitem}>Delete</button>
+            <p style={{ color: "grey" }}>{currentTime}</p>
+            <button className="deletebtn" onClick={deletethisitem}>
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
           </div>
         </div>
         <div className="alltodoscontainer-two">
@@ -146,7 +152,11 @@ function Alltodos({
             className="fa-solid fa-calendar-days calendar-icon"
             onClick={handleIconClick}
           />
-          {duedate && <p>Due by: {new Date(duedate).toLocaleDateString()}</p>}
+          {duedate && (
+            <p style={{ color: "grey", fontSize: "14px" }}>
+              Due by: {new Date(duedate).toLocaleDateString()}
+            </p>
+          )}
         </div>
       </div>
 
