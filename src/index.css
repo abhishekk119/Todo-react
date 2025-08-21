@@ -459,20 +459,22 @@ body {
 @media (max-width: 767px) {
   /* Enhanced smooth animations for mobile */
 
-  .alltodosdiv {
-    transition: grid-template-rows 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: grid-template-rows, opacity;
-  }
+  /* Replace the current animation CSS with this */
+.alltodosdiv {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
 
-  .alltodosdiv.expanding {
-    grid-template-rows: 1fr;
-    opacity: 1;
-  }
+.alltodosdiv.expanding {
+  max-height: 500px; /* Adjust based on your content height */
+  opacity: 1;
+}
 
-  .alltodosdiv.collapsing {
-    grid-template-rows: 0fr;
-    opacity: 0;
-  }
+.alltodosdiv.collapsing {
+  max-height: 0;
+  opacity: 0;
+}
 
 } 
