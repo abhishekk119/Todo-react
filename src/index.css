@@ -235,9 +235,9 @@ body {
 .click-dropdown-content {
   height: auto;
   width: 130px;
-  border: 1px solid #1a1a1a;
+  border: 1px solid rgb(77, 76, 76);
   border-radius: 7px;
-  background-color: #1a1a1a;
+  background-color: rgb(77, 76, 76);
   color: white;
   display: flex;
   flex-direction: column;
@@ -269,7 +269,7 @@ body {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #1a1a1a; /* Same color as dropdown background */
+  border-bottom: 10px solid rgb(77, 76, 76); /* Same color as dropdown background */
 }
 
 .click-dropdown-content p {
