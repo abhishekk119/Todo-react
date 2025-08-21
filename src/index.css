@@ -235,9 +235,9 @@ body {
 .click-dropdown-content {
   height: auto;
   width: 130px;
-  border: 1px solid white;
+  border: 1px solid #1a1a1a;
   border-radius: 7px;
-  background-color: white;
+  background-color: #1a1a1a;
   color: white;
   display: flex;
   flex-direction: column;
@@ -269,7 +269,7 @@ body {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid white; /* Same color as dropdown background */
+  border-bottom: 10px solid #1a1a1a; /* Same color as dropdown background */
 }
 
 .click-dropdown-content p {
@@ -277,11 +277,11 @@ body {
   margin: 0;
   padding: 0;
   cursor: pointer;
-  color: black;
+  color: white;
 }
 
 .categories p {
-  color: black;
+  color: white;
 }
 
 .dropdowncontainer {
